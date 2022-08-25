@@ -1,0 +1,39 @@
+.root {
+  width: 300px;
+  display: block;
+  height: 46px;
+  padding-left: 16px;
+  padding-right: 50px;
+  font-family: inherit;
+  font-size: 16px;
+  color: #000000;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #b6c7e4;
+  border-radius: 6px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  outline: none;
+}
+.form {
+  position: relative;
+  /* top: -5px; */
+}
+
+.button {
+  height: 30px;
+  width: 32px;
+  border: 0px;
+  background-color: #d0cff7;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: #bebdf5;
+}
