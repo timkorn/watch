@@ -1,14 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import App from "../components/App";
-
-const DynamicHeader = dynamic(() => import("../components/App"), {
-  ssr: false,
-});
+import Card from "../components/Card";
+import CardContainer from "../components/CardContainer";
+import SearchField from "../components/SearchField";
+import Wrapper from "../components/Wrapper";
 
 const Home: NextPage = () => {
+  const handleSearchSubmit = (value: string) => {
+    alert(value);
+  };
   return (
     <div>
       <Head>
@@ -21,7 +21,22 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <App />
+      <Wrapper>
+        <Wrapper.Header>
+          <SearchField handleSubmit={handleSearchSubmit} />
+          <img src="/AddWatchlist.svg" height="26px" />
+        </Wrapper.Header>
+        <Wrapper.Main>
+          <CardContainer>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </CardContainer>
+        </Wrapper.Main>
+      </Wrapper>
     </div>
   );
 };

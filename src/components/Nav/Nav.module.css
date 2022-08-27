@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+}
+
+.root li {
+  margin-right: 50px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.heading {
+  color: var(--secondary-color);
+}

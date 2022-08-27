@@ -19,10 +19,8 @@ const Card: React.FC<CardProps> = ({}) => {
           <img src="/Rating.svg" />
           <span className={s.mark}>8.9</span>
         </div>
-        <span className={s.dir}>directed by: Timur Kornilov</span>
-        <span className={s.stars}>
-          stars: Timur Kornilov Timur Kornilov Timur Kornilov Timur Kornilov
-        </span>
+        <span className={s.dir}>director: Timur Kornilov</span>
+        <span className={s.stars}>thliller drama</span>
       </div>
     </div>
   );

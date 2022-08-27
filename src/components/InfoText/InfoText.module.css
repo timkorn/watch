@@ -1,0 +1,24 @@
+.heading {
+  color: var(--secondary-color);
+}
+
+.root {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-items: baseline;
+  padding-left: 10px;
+  border-top: 0.5px solid rgba(49, 45, 209, 0.5);
+}
+.content {
+  margin-left: 10px;
+}
+
+.root:first-child {
+  border-top: 0px;
+  padding-top: 0px;
+}
+
+.root:last-child {
+  padding-bottom: 0px;
+}
