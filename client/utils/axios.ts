@@ -1,7 +1,7 @@
 import Router from "next/router";
 import axios, { AxiosError } from "axios";
 import getCookie from "./getCookie";
-axios.defaults.baseURL = process.env.api || "http://localhost:8080";
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API || "http://localhost:8080";
 axios.defaults.withCredentials = true;
 const req = (method: "post" | "get", endpoint: string, body: any) => {
   const token = getCookie("accessToken");
