@@ -63,7 +63,7 @@ const FilmPage: NextPage = () => {
             {!isMainInfoLoading ? (
               <img className={s.poster} src={filmMainInfo!.posterUrl} />
             ) : (
-              <Skeleton className={s.poster} />
+              <Skeleton className={s.posterSkeleton} />
             )}
             <div className={s.content}>
               <div className={s.name}>

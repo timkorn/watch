@@ -8,14 +8,16 @@ import { login } from "../features/authSlice";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { Field, Formik, Form } from "formik";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store";
+import Loader from "../components/Loader";
 const SignipSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().required("Password is required"),
 });
 const Login: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { LoginLoading } = useSelector((store: RootState) => store.auth);
   return (
     <AuthPageWrapper type="login">
       <>
@@ -45,7 +47,7 @@ const Login: NextPage = () => {
               type="password"
               placeholder="password"
             />
-            <Button>Go!</Button>
+            <Button loading={LoginLoading}>Go!</Button>
           </Form>
         </Formik>
       </>

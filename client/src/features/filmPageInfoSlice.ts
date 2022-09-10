@@ -29,7 +29,6 @@ export const getMainInfo = createAsyncThunk(
 export const getStaff = createAsyncThunk(
   "films/getStaff",
   async (data: { filmId: string; [x: string]: any }) => {
-    console.log("hello");
     const response = req("get", `films/getstaff/${data.filmId}`, null);
     return (await response).data;
   }
@@ -62,7 +61,6 @@ const filmPageInfoSlice = createSlice({
       console.log(action.payload);
     });
     builder.addCase(getStaff.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.additionalInfo = action.payload.actors;
       state.isAdditionalInfoLoading = false;
     });
@@ -75,7 +73,6 @@ const filmPageInfoSlice = createSlice({
       }
     });
     builder.addCase(addToWatchlist.rejected, (state, action) => {
-      console.log(Router.asPath.split("/"));
       if (Router.asPath.split("/").includes("film")) {
         state.filmMainInfo!.chosen = false;
         state.filmMainInfo!.pending = false;

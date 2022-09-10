@@ -5,6 +5,7 @@
   color: white;
   padding-left: 30px;
   padding-right: 30px;
+  position: relative;
 }
 .contained {
   background-color: var(--secondary-color);
@@ -14,4 +15,24 @@
 .contained:hover {
   background-color: #2e2ac5;
   cursor: pointer;
+}
+
+.loadingWord {
+  color: var(--secondary-color);
+}
+
+.contained:hover .loadingWord {
+  color: #2e2ac5;
+}
+
+.disabled.contained:hover {
+  background-color: var(--secondary-color);
+  cursor: auto;
+}
+.disabled {
+  display: flex;
+}
+
+.disabled.contained:hover .loadingWord {
+  color: var(--secondary-color);
 }

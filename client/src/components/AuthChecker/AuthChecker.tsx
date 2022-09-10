@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import getCookie from "../../../utils/getCookie";
 import { refresh, changeRefresher } from "../../features/authSlice";
 import { AppDispatch, RootState } from "../../store";
+import Loading from "../Loading";
 interface AuthCheckerProps {
   children: ReactNode;
 }
@@ -35,7 +36,6 @@ const AuthChecker: React.FC<AuthCheckerProps> = ({ children }) => {
   }
   useEffect(() => {
     if (userId !== null) {
-      console.log("1 mitute to refresh");
       const interval = setInterval(() => {
         dispatch(refresh());
       }, 1000 * 60 * 4);
@@ -49,7 +49,7 @@ const AuthChecker: React.FC<AuthCheckerProps> = ({ children }) => {
   }, []);
 
   return (
-    <>{userId || checkPublickPath(router.asPath) ? children : "Loading..."}</>
+    <>{userId || checkPublickPath(router.asPath) ? children : <Loading />}</>
   );
 };
 export default AuthChecker;

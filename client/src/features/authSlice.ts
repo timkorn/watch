@@ -8,11 +8,15 @@ import { toast } from "react-toastify";
 interface initialStateProps {
   refresher: number | null;
   userId: string | null;
+  LoginLoading: boolean;
+  RegisterLoading: boolean;
 }
 
 const initialState: initialStateProps = {
   userId: null,
   refresher: null,
+  LoginLoading: false,
+  RegisterLoading: false,
 };
 export const login = createAsyncThunk(
   "auth/login",
@@ -33,7 +37,7 @@ export const refresh = createAsyncThunk("auth/refreshToken", async () => {
   if (!refreshToken) {
     Router.push("/login");
   }
-  const response = req("get", "auth/refreshToken", { refreshToken });
+  const response = req("post", "auth/refreshToken", { refreshToken });
   return (await response).data;
 });
 
@@ -56,6 +60,12 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(register.pending, (state) => {
+      state.RegisterLoading = true;
+    });
+    builder.addCase(login.pending, (state) => {
+      state.LoginLoading = true;
+    });
     builder.addCase(register.fulfilled, (state, action) => {
       if (state.refresher) {
         clearInterval(state.refresher);
@@ -67,10 +77,12 @@ const authSlice = createSlice({
       state.userId = decoded.userId;
       document.cookie = `accessToken=${accessToken}`;
       document.cookie = `refreshToken=${refreshToken}`;
+      state.RegisterLoading = false;
       Router.push("/");
     });
     builder.addCase(register.rejected, (state, action) => {
       toast.error("this email exists!");
+      state.RegisterLoading = false;
     });
     builder.addCase(login.fulfilled, (state, action) => {
       if (state.refresher) {
@@ -83,9 +95,11 @@ const authSlice = createSlice({
       state.userId = decoded.userId;
       document.cookie = `accessToken=${accessToken}`;
       document.cookie = `refreshToken=${refreshToken}`;
+      state.LoginLoading = false;
       Router.push("/");
     });
     builder.addCase(login.rejected, (state, action) => {
+      state.LoginLoading = false;
       toast.error("incorrect login or password!");
     });
     builder.addCase(refresh.fulfilled, (state, action) => {
@@ -105,6 +119,7 @@ const authSlice = createSlice({
     });
     builder.addCase(refresh.rejected, (state, action) => {
       console.log(action.payload);
+      Router.push("/login");
     });
   },
 });

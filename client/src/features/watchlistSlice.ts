@@ -48,14 +48,6 @@ const watchlistSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(addToWatchlist.fulfilled, (state, action) => {
-      console.log("hello");
-    });
-    builder.addCase(addToWatchlist.rejected, (state, action) => {
-      if (action.error.code == "ERR_BAD_REQUEST") {
-        toast.error("watchlist limit exeeded!");
-      }
-    });
     builder.addCase(getWatchlist.fulfilled, (state, action) => {
       state.watchlist = action.payload.filmsData;
       state.isLoading = false;

@@ -8,8 +8,9 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { Field, Formik, Form } from "formik";
 import { register } from "../features/authSlice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store";
+import Loader from "../components/Loader";
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().required("Password is required"),
@@ -19,6 +20,8 @@ const SignupSchema = Yup.object().shape({
 });
 const Register: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { RegisterLoading } = useSelector((store: RootState) => store.auth);
+
   return (
     <AuthPageWrapper type="register">
       <>
@@ -55,7 +58,7 @@ const Register: NextPage = () => {
               type="password"
               placeholder="repeat password"
             />
-            <Button>Go!</Button>
+            <Button loading={RegisterLoading}>Go!</Button>
           </Form>
         </Formik>
       </>
