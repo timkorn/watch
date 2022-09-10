@@ -1,0 +1,17 @@
+.root {
+  height: 48px;
+  border: 0px;
+  font-size: 20px;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.contained {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.contained:hover {
+  background-color: #2e2ac5;
+  cursor: pointer;
+}

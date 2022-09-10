@@ -1,0 +1,80 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+  align-items: center;
+}
+
+.image {
+  width: 200px;
+  height: 60px;
+  margin-bottom: 70px;
+}
+
+.authContainer {
+  padding: 20px 45px 20px 45px;
+  background: #ffffff;
+  box-shadow: 4px 4px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addInf {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.addInf p {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.addInf p:last-child {
+  color: var(--secondary-color);
+}
+
+.addInf:hover {
+  cursor: pointer;
+}
+
+@media (max-height: 700px) {
+  .image {
+    width: 150px;
+    height: 60px;
+    margin-bottom: 40px;
+  }
+  .root {
+    padding-top: 40px;
+  }
+}
+
+@media (max-height: 600px) {
+  .image {
+    width: 150px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  .root {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .authContainer {
+    box-shadow: none;
+    background-color: transparent;
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .authContainer {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}

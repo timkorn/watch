@@ -1,0 +1,52 @@
+.root {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 500;
+}
+.level1 {
+  font-size: 30px;
+}
+.level2 {
+  font-size: 28px;
+}
+.level3 {
+  font-size: 22px;
+}
+.level4 {
+  font-size: 18px;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .level1 {
+    font-size: 26px;
+  }
+  .level2 {
+    font-size: 24px;
+  }
+  .level3 {
+    font-size: 20px;
+  }
+  .level4 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .level1 {
+    font-size: 24px;
+  }
+  .level2 {
+    font-size: 22px;
+  }
+  .level3 {
+    font-size: 18px;
+  }
+  .level4 {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,19 @@
+.flag {
+  cursor: pointer;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+}
+.logout {
+  color: rgb(218, 78, 78);
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+@media (max-width: 800px) {
+  .logout {
+    margin-left: 20px;
+  }
+}

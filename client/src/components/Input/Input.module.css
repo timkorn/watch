@@ -1,0 +1,40 @@
+.root {
+  display: block;
+  height: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: inherit;
+  font-size: 18px;
+  background: #e7f1fd;
+  border: 1px solid #b9b9e2;
+  border-radius: 10px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  outline: none;
+  color: #000000;
+  width: 100%;
+}
+
+.root:focus {
+  border-color: var(--secondary-color);
+}
+.error {
+  border-color: #df5555;
+}
+
+.errorText {
+  color: #df5555;
+  position: absolute;
+  top: 50px;
+  font-size: 14px;
+}
+
+.inputContainer {
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 500px) {
+  .root {
+    background-color: white;
+  }
+}

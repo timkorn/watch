@@ -1,0 +1,161 @@
+.root {
+  /* height: 365px;
+  width: 315px; */
+  width: 225px;
+  height: 380px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 50px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
+}
+.skeleton {
+  width: 225px;
+  height: 380px;
+  box-shadow: 4px 4px 50px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+.root:hover {
+  box-shadow: 4px 4px 50px rgba(49, 45, 209, 0.6);
+  cursor: pointer;
+}
+.header span {
+  display: inline-block;
+  font-size: 21px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.header {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 150px;
+}
+
+.image {
+  height: 300px;
+  vertical-align: middle;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image img {
+  height: auto;
+  width: 100%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.year {
+  margin-left: 5px;
+  color: var(--secondary-color);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.content {
+  padding: 10px 10px 10px 15px;
+  position: relative;
+  height: 80px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.mark {
+  margin-left: 5px;
+  color: var(--secondary-color);
+  font-size: 18px;
+}
+
+.dir,
+.stars {
+  color: rgba(0, 0, 0, 0.8);
+  display: block;
+}
+.dir {
+  margin-top: 6px;
+  margin-bottom: 5px;
+}
+
+.flag {
+  position: absolute;
+  width: 14px;
+  height: 20px;
+  top: 13px;
+  right: 10px;
+}
+
+@media (max-width: 800px) {
+  .root,
+  .skeleton {
+    width: 180px;
+    height: 330px;
+  }
+  .image {
+    height: 260px;
+  }
+  .header span {
+    font-size: 18px;
+  }
+  .content {
+    padding-top: 7px;
+    padding-bottom: 0px;
+    height: 70px;
+  }
+  .flag {
+    top: 6px;
+    right: 10px;
+  }
+
+  .header {
+    width: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .root,
+  .skeleton {
+    width: 160px;
+    height: 280px;
+  }
+  .image {
+    height: 220px;
+  }
+  .header span {
+    font-size: 16px;
+  }
+  .content {
+    padding-top: 5px;
+    padding-bottom: 0px;
+
+    padding-left: 8px;
+    height: 70px;
+  }
+  .flag {
+    top: 6px;
+    right: 10px;
+  }
+  .year {
+    bottom: 20px;
+    font-size: 14px;
+  }
+  .rating {
+    bottom: 20px;
+  }
+  .rating span {
+    font-size: 14px;
+  }
+  .header {
+    width: 120px;
+  }
+}

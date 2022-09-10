@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  align-items: center;
+  padding-right: 40px;
+  padding-left: 40px;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  margin-left: 60px;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .logo {
+    height: 30px;
+  }
+  .root {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .content {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 670px) {
+  .logo {
+    display: none;
+  }
+  .content {
+    margin-left: 0px;
+  }
+}

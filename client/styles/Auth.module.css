@@ -1,0 +1,8 @@
+.heading {
+  color: var(--secondary-color);
+  margin-bottom: 30px !important;
+}
+
+.input {
+  margin-bottom: 30px;
+}
