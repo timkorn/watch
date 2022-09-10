@@ -17,6 +17,7 @@ const Nav: React.FC<NavProps> = ({ names, links }) => {
           onClick={() => {
             router.push(links[i]);
           }}
+          key={i}
         >
           <Heading level={2} className={s.heading}>
             {item}
