@@ -1,8 +1,10 @@
 import Router from "next/router";
 import axios, { AxiosError } from "axios";
-axios.defaults.baseURL = "http://localhost:8080";
+import getCookie from "./getCookie";
+axios.defaults.baseURL = process.env.api || "http://localhost:8080";
 axios.defaults.withCredentials = true;
 const req = (method: "post" | "get", endpoint: string, body: any) => {
+  const token = getCookie("accessToken");
   if (method == "get") {
     return axios({
       method: method,
@@ -12,6 +14,9 @@ const req = (method: "post" | "get", endpoint: string, body: any) => {
           Router.push("/login");
         }
         return status === 200;
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
   } else {
@@ -24,6 +29,9 @@ const req = (method: "post" | "get", endpoint: string, body: any) => {
           Router.push("/login");
         }
         return status === 200;
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
   }

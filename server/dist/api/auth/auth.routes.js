@@ -79,9 +79,9 @@ router.post("/login", (req, res, next) => __awaiter(void 0, void 0, void 0, func
         next(err);
     }
 }));
-router.get("/refreshToken", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/refreshToken", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { refreshToken } = req.cookies;
+        const { refreshToken } = req.body;
         if (!refreshToken) {
             res.status(400);
             throw new Error("Missing refresh token.");

@@ -29,8 +29,11 @@ export const register = createAsyncThunk(
   }
 );
 export const refresh = createAsyncThunk("auth/refreshToken", async () => {
-  console.log("begin refresh...");
-  const response = req("get", "auth/refreshToken", null);
+  const refreshToken = getCookie("refreshToken");
+  if (!refreshToken) {
+    Router.push("/login");
+  }
+  const response = req("get", "auth/refreshToken", { refreshToken });
   return (await response).data;
 });
 

@@ -85,9 +85,9 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.get("/refreshToken", async (req, res, next) => {
+router.post("/refreshToken", async (req, res, next) => {
   try {
-    const { refreshToken } = req.cookies;
+    const { refreshToken } = req.body;
     if (!refreshToken) {
       res.status(400);
       throw new Error("Missing refresh token.");
