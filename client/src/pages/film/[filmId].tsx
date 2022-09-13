@@ -33,16 +33,16 @@ const FilmPage: NextPage = () => {
   const text = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
     if (router.query.filmId) {
+      const data = router.query as { filmId: string; [x: string]: any };
       dispatch(
         getMainInfo({ filmId: router.query.filmId as string, userId: userId! })
       );
+      dispatch(getStaff(data));
     } else {
       router.push("/");
     }
     return () => {
       dispatch(cleanInfo());
-      const data = router.query as { filmId: string; [x: string]: any };
-      dispatch(getStaff(data));
     };
   }, []);
   useEffect(() => {

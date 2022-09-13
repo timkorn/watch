@@ -1,5 +1,5 @@
 import Router from "next/router";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import getCookie from "./getCookie";
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API || "http://localhost:8080";
 axios.defaults.withCredentials = true;
