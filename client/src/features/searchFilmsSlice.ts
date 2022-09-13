@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Router from "next/router";
 import { toast } from "react-toastify";
 import req from "../../utils/axios";
+import { login } from "./authSlice";
 import { addToWatchlist } from "./watchlistSlice";
 
 interface initialStateProps {
@@ -48,6 +49,13 @@ const searchFilmsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(login.fulfilled, (state, action) => {
+      if (!state.isFilmsSearch || state.isLoading || state.searchedFilms) {
+        state.isFilmsSearch = false;
+        state.isLoading = true;
+        state.searchedFilms = null;
+      }
+    });
     builder.addCase(searchFilms.fulfilled, (state, action) => {
       state.searchedFilms = action.payload.films;
       state.isLoading = false;

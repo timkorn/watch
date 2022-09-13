@@ -12,6 +12,14 @@ const req = (method: "post" | "get", endpoint: string, body: any) => {
       validateStatus: function (status) {
         if (status == 401) {
           Router.push("/login");
+          document.cookie.split(";").forEach(function (c) {
+            document.cookie = c
+              .replace(/^ +/, "")
+              .replace(
+                /=.*/,
+                "=;expires=" + new Date().toUTCString() + ";path=/"
+              );
+          });
         }
         return status === 200;
       },
@@ -26,6 +34,14 @@ const req = (method: "post" | "get", endpoint: string, body: any) => {
       data: body,
       validateStatus: function (status) {
         if (status == 401) {
+          document.cookie.split(";").forEach(function (c) {
+            document.cookie = c
+              .replace(/^ +/, "")
+              .replace(
+                /=.*/,
+                "=;expires=" + new Date().toUTCString() + ";path=/"
+              );
+          });
           Router.push("/login");
         }
         return status === 200;
