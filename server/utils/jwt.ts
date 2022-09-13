@@ -18,7 +18,7 @@ function generateRefreshToken(user: userProp, jti: string) {
     },
     process.env.JWT_REFRESH_SECRET!,
     {
-      expiresIn: "8h",
+      expiresIn: "30d",
     }
   );
 }

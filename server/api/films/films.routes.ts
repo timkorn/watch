@@ -18,7 +18,9 @@ filmRouter.post("/search", async (req, res, next) => {
   try {
     const search: string = req.body.search;
     const userId: string = req.body.userId;
-    const result = await axios.get(endpoints.globalSearch + search);
+    const result = await axios.get(
+      endpoints.globalSearch + encodeURIComponent(search)
+    );
     const films = result.data.films;
     const watchlist = await getWatchList(userId);
     films.forEach((item: any, index: number, array: any[]) => {

@@ -7,7 +7,6 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 function isAuthenticated(req, res, next) {
     var _a;
     const accessToken = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1].slice(0, -1);
-    console.log(accessToken);
     if (!accessToken) {
         res.status(401);
         throw new Error("🚫 Un-Authorized 🚫");

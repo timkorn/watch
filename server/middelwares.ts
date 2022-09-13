@@ -4,7 +4,6 @@ import jwt, { JsonWebTokenError } from "jsonwebtoken";
 
 function isAuthenticated(req: Request, res: Response, next: NextFunction) {
   const accessToken = req.headers.authorization?.split(" ")[1].slice(0, -1);
-  console.log(accessToken);
   if (!accessToken) {
     res.status(401);
     throw new Error("🚫 Un-Authorized 🚫");
