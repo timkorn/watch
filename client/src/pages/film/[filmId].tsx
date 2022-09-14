@@ -60,7 +60,7 @@ const FilmPage: NextPage = () => {
         <Nav names={["Home", "Watchlist"]} links={["/", "/watchlist"]} />
       </Wrapper.Header>
       <Wrapper.Main classNames={s.main}>
-        {(isMainInfoLoading || isAdditionalInfoLoading) && <Loader size={40} />}
+        {isMainInfoLoading && isAdditionalInfoLoading && <Loader size={40} />}
         <div className={s.filmContainer}>
           <div className={s.posterContainer}>
             {!isMainInfoLoading && (
