@@ -61,10 +61,8 @@ const FilmPage: NextPage = () => {
       <Wrapper.Main classNames={s.main}>
         <div className={s.filmContainer}>
           <div className={s.posterContainer}>
-            {!!isMainInfoLoading ? (
+            {!isMainInfoLoading && (
               <img className={s.poster} src={filmMainInfo!.posterUrl} />
-            ) : (
-              <Skeleton className={s.posterSkeleton} />
             )}
             <div className={s.content}>
               <div className={s.name}>
@@ -99,9 +97,7 @@ const FilmPage: NextPage = () => {
               )}
             </div>
           </div>
-          {isAdditionalInfoLoading || isMainInfoLoading ? (
-            <Skeleton className={s.infoLoading} />
-          ) : (
+          {!(isAdditionalInfoLoading || isMainInfoLoading) && (
             <FilmInfo
               actors={additionalInfo!
                 .slice(1)
