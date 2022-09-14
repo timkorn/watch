@@ -59,62 +59,57 @@ const FilmPage: NextPage = () => {
       <Wrapper.Header headerStyles={s.header}>
         <Nav names={["Home", "Watchlist"]} links={["/", "/watchlist"]} />
       </Wrapper.Header>
-
-      {isAdditionalInfoLoading || isMainInfoLoading ? (
-        <div className={s.loadingContainer}></div>
-      ) : (
-        <Wrapper.Main classNames={s.main}>
-          <div className={s.filmContainer}>
-            <div className={s.posterContainer}>
-              {!isMainInfoLoading && (
-                <img className={s.poster} src={filmMainInfo!.posterUrl} />
-              )}
-              <div className={s.content}>
-                <div className={s.name}>
-                  {!isMainInfoLoading && (
-                    <div className={s.header1} ref={container}>
-                      <span ref={text}>
-                        {filmMainInfo!.nameOriginal || filmMainInfo!.nameRu}
-                      </span>
-                    </div>
-                  )}
-                  {!isMainInfoLoading && (
-                    <AddWatchlist
-                      chosen={filmMainInfo!.chosen}
-                      classNames={s.watchlist}
-                      filmId={filmMainInfo!.kinopoiskId}
-                      pending={
-                        typeof filmMainInfo.pending === "undefined"
-                          ? false
-                          : filmMainInfo.pending
-                      }
-                      type="filmPage"
-                    />
-                  )}
-                </div>
-                {!isMainInfoLoading && filmMainInfo!.ratingKinopoisk && (
-                  <div className={s.rating}>
-                    <img src="/Rating.svg" className={s.star} />
-                    <span className={s.mark}>
-                      {filmMainInfo!.ratingKinopoisk}
+      <Wrapper.Main classNames={s.main}>
+        <div className={s.filmContainer}>
+          <div className={s.posterContainer}>
+            {!isMainInfoLoading && (
+              <img className={s.poster} src={filmMainInfo!.posterUrl} />
+            )}
+            <div className={s.content}>
+              <div className={s.name}>
+                {!isMainInfoLoading && (
+                  <div className={s.header1} ref={container}>
+                    <span ref={text}>
+                      {filmMainInfo!.nameOriginal || filmMainInfo!.nameRu}
                     </span>
                   </div>
                 )}
+                {!isMainInfoLoading && (
+                  <AddWatchlist
+                    chosen={filmMainInfo!.chosen}
+                    classNames={s.watchlist}
+                    filmId={filmMainInfo!.kinopoiskId}
+                    pending={
+                      typeof filmMainInfo.pending === "undefined"
+                        ? false
+                        : filmMainInfo.pending
+                    }
+                    type="filmPage"
+                  />
+                )}
               </div>
+              {!isMainInfoLoading && filmMainInfo!.ratingKinopoisk && (
+                <div className={s.rating}>
+                  <img src="/Rating.svg" className={s.star} />
+                  <span className={s.mark}>
+                    {filmMainInfo!.ratingKinopoisk}
+                  </span>
+                </div>
+              )}
             </div>
-            <FilmInfo
-              actors={additionalInfo!
-                .slice(1)
-                .map((item) => item.nameEn || item.nameRu)}
-              ageRating={filmMainInfo!.ratingAgeLimits || "-"}
-              directorName={
-                additionalInfo![0].nameEn || additionalInfo![0].nameRu
-              }
-              votesCount={filmMainInfo!.reviewsCount}
-            />
           </div>
-        </Wrapper.Main>
-      )}
+          <FilmInfo
+            actors={additionalInfo!
+              .slice(1)
+              .map((item) => item.nameEn || item.nameRu)}
+            ageRating={filmMainInfo!.ratingAgeLimits || "-"}
+            directorName={
+              additionalInfo![0].nameEn || additionalInfo![0].nameRu
+            }
+            votesCount={filmMainInfo!.reviewsCount}
+          />
+        </div>
+      </Wrapper.Main>
     </Wrapper>
   );
 };
