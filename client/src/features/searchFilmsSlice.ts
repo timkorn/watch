@@ -50,11 +50,9 @@ const searchFilmsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, action) => {
-      if (!state.isFilmsSearch || state.isLoading || state.searchedFilms) {
-        state.isFilmsSearch = false;
-        state.isLoading = true;
-        state.searchedFilms = null;
-      }
+      state.isFilmsSearch = false;
+      state.isLoading = true;
+      state.searchedFilms = null;
     });
     builder.addCase(searchFilms.fulfilled, (state, action) => {
       state.searchedFilms = action.payload.films;
