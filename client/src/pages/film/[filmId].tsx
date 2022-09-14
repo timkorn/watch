@@ -59,12 +59,13 @@ const FilmPage: NextPage = () => {
       <Wrapper.Header headerStyles={s.header}>
         <Nav names={["Home", "Watchlist"]} links={["/", "/watchlist"]} />
       </Wrapper.Header>
-      <Wrapper.Main classNames={s.main}>
-        {isAdditionalInfoLoading || isMainInfoLoading ? (
-          <div className={s.loadingContainer}>
-            <Loader size={40} />
-          </div>
-        ) : (
+
+      {isAdditionalInfoLoading || isMainInfoLoading ? (
+        <div className={s.loadingContainer}>
+          <Loader size={40} />
+        </div>
+      ) : (
+        <Wrapper.Main classNames={s.main}>
           <div className={s.filmContainer}>
             <div className={s.posterContainer}>
               {!isMainInfoLoading && (
@@ -114,8 +115,8 @@ const FilmPage: NextPage = () => {
               votesCount={filmMainInfo!.reviewsCount}
             />
           </div>
-        )}
-      </Wrapper.Main>
+        </Wrapper.Main>
+      )}
     </Wrapper>
   );
 };
