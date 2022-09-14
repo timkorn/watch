@@ -98,16 +98,18 @@ const FilmPage: NextPage = () => {
               )}
             </div>
           </div>
-          <FilmInfo
-            actors={additionalInfo!
-              .slice(1)
-              .map((item) => item.nameEn || item.nameRu)}
-            ageRating={filmMainInfo!.ratingAgeLimits || "-"}
-            directorName={
-              additionalInfo![0].nameEn || additionalInfo![0].nameRu
-            }
-            votesCount={filmMainInfo!.reviewsCount}
-          />
+          {!(isAdditionalInfoLoading || isMainInfoLoading) && (
+            <FilmInfo
+              actors={additionalInfo!
+                .slice(1)
+                .map((item) => item.nameEn || item.nameRu)}
+              ageRating={filmMainInfo!.ratingAgeLimits || "-"}
+              directorName={
+                additionalInfo![0].nameEn || additionalInfo![0].nameRu
+              }
+              votesCount={filmMainInfo!.reviewsCount}
+            />
+          )}
         </div>
       </Wrapper.Main>
     </Wrapper>
