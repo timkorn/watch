@@ -61,11 +61,7 @@ const FilmPage: NextPage = () => {
       </Wrapper.Header>
 
       {isAdditionalInfoLoading || isMainInfoLoading ? (
-        {
-          /* <div className={s.loadingContainer}>
-          <Loader size={40} />
-        </div> */
-        }
+        <div className={s.loadingContainer}></div>
       ) : (
         <Wrapper.Main classNames={s.main}>
           <div className={s.filmContainer}>
