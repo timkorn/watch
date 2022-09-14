@@ -61,7 +61,7 @@ const FilmPage: NextPage = () => {
       <Wrapper.Main classNames={s.main}>
         <div className={s.filmContainer}>
           <div className={s.posterContainer}>
-            {!isMainInfoLoading ? (
+            {!!isMainInfoLoading ? (
               <img className={s.poster} src={filmMainInfo!.posterUrl} />
             ) : (
               <Skeleton className={s.posterSkeleton} />
