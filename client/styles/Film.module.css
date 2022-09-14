@@ -12,6 +12,7 @@
 
 .posterContainer {
   width: 250px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   padding-top: 35px;
