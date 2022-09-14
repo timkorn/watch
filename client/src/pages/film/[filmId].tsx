@@ -30,7 +30,6 @@ const FilmPage: NextPage = () => {
     isAdditionalInfoLoading,
     isMainInfoLoading,
   } = useSelector((store: RootState) => store.filmInfo);
-  console.log("infoLoad", isMainInfoLoading, isAdditionalInfoLoading);
   const { userId } = useSelector((store: RootState) => store.auth);
   const container = useRef<HTMLDivElement | null>(null);
   const text = useRef<HTMLSpanElement | null>(null);
